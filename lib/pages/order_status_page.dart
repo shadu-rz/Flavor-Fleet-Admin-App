@@ -25,7 +25,7 @@ class OrderStatusPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width,
             height: 45 * 2,
             // color: Colors.grey,
