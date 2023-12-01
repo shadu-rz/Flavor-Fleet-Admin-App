@@ -1,5 +1,5 @@
-
-import 'package:flavor_fleet_admin_app/pages/product_add_page.dart';
+import 'package:flavor_fleet_admin_app/pages/add_popular_product_page.dart';
+import 'package:flavor_fleet_admin_app/pages/add_recommended_product_page.dart';
 import 'package:flavor_fleet_admin_app/widgets/popular_product_list_widget.dart';
 import 'package:flavor_fleet_admin_app/widgets/recommended_product_list_widget.dart';
 import 'package:flutter/material.dart';
@@ -11,35 +11,86 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.grey,
         title: const Center(
-            child: Text(
-          'Admin',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        )),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const ProductAddPage(),
-              ));
-            },
-            icon: const Icon(
-              Icons.add,
-              color: Colors.white,
-            ),
-          )
-        ],
+          child: Text(
+            'Admin',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+        ),
       ),
-      body: const  Column(
+      body: Column(
         children: [
-          Text('Popular' ,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 18)),
-          Expanded(child:  PopulaProductListWidget()),
-          Text('Recomended', style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black,fontSize: 18)),
-          Expanded(child:  RecommendedProductListWidget())
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Popular Food',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontSize: 24),
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: Colors.grey,
+                  ),
+                  height: 50,
+                  width: 50,
+                  child: IconButton(
+                    color: Colors.white,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const PopularProduct(),
+                      ));
+                    },
+                    icon: const Icon(Icons.add),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Expanded(child: PopulaProductListWidget()),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Recomended Food',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontSize: 24),
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: Colors.grey,
+                  ),
+                  height: 50,
+                  width: 50,
+                  child: IconButton(
+                    color: Colors.white,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const RecommendedProduct(),
+                      ));
+                    },
+                    icon: const Icon(Icons.add),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Expanded(child: RecommendedProductListWidget())
         ],
       ),
     );
   }
 }
-

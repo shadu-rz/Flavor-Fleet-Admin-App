@@ -8,44 +8,55 @@ class ProductAddPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
+      appBar: AppBar(
         title: const Center(
             child: Text(
           'Product Add',
-          style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         )),
         actions: [
-          IconButton(onPressed: (){
-
-          }, icon: const Icon(Icons.add,color: Colors.white,))
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.add,
+                color: Colors.white,
+              ))
         ],
       ),
       body: Center(
-        child: Column(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              width: double.maxFinite,
-              child: ElevatedButton(
+              height: 100,
+              width: 150,
+              color: Colors.black54,
+              child: TextButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const PopularProduct(),
                   ));
                 },
-                child: const Text('Popular Product'),
+                child: const Text(
+                  'Popular Product',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              width: double.maxFinite,
-              child: ElevatedButton(
+              height: 100,
+              width: 200,
+              color: Colors.blueGrey,
+              child: TextButton(
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const RecommendedProduct(),
                   ));
                 },
-                child: const Text('Recommended Product'),
+                child: const Text(
+                  'Recommended Product',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
           ],

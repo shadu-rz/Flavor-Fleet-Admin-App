@@ -7,12 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:165082463166:android:304a8b5bc5a8c1138b57ef",
+        "mobilesdk_app_id": "1:165082463166:android:cbf01a0de832e94f8b57ef",
         "android_client_info": {
-          "package_name": "com.example.flavor_fleet_admin_app"
+          "package_name": "com.example.flavofleet_main"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "165082463166-p7bgu2piqff2f97juf3dc9vlnphphgl8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flavofleet_main",
+            "certificate_hash": "b58a293c11f11bf688192f7a895f2b7191ae4def"
+          }
+        },
         {
           "client_id": "165082463166-8u5ap31ofnkosabvvnuksivn91v94l77.apps.googleusercontent.com",
           "client_type": 3
@@ -36,20 +44,12 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:165082463166:android:3dbdd00cb9c6417d8b57ef",
+        "mobilesdk_app_id": "1:165082463166:android:304a8b5bc5a8c1138b57ef",
         "android_client_info": {
-          "package_name": "com.example.flavour_fleet_main"
+          "package_name": "com.example.flavor_fleet_admin_app"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "165082463166-4bmi2msg5lan786458brfl2o793ub6es.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.flavour_fleet_main",
-            "certificate_hash": "94eae287caa960d09dd253edeea4196294df7835"
-          }
-        },
         {
           "client_id": "165082463166-8u5ap31ofnkosabvvnuksivn91v94l77.apps.googleusercontent.com",
           "client_type": 3
