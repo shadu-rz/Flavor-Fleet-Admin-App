@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flavor_fleet_admin_app/firebase/firestore_methods.dart';
 import 'package:flutter/material.dart';
 
 class RecommendedProductListWidget extends StatelessWidget {
@@ -98,7 +99,8 @@ class RecommendedProductListWidget extends StatelessWidget {
               TextButton(
                 child: const Text('Confirm'),
                 onPressed: () async {
-                  
+                  Navigator.pop(context);
+                   await FirestoreMethods().deleteRecProduct(snap['productId']);
                 },
               ),
             ],

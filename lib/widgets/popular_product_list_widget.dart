@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flavor_fleet_admin_app/firebase/firestore_methods.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class PopulaProductListWidget extends StatelessWidget {
   const PopulaProductListWidget({
@@ -99,7 +100,9 @@ class PopulaProductListWidget extends StatelessWidget {
               TextButton(
                 child: const Text('Confirm'),
                 onPressed: () async {
+                  Navigator.pop(context);
                    await FirestoreMethods().deleteProduct(snap['productId']);
+                   
                 },
               ),
             ],

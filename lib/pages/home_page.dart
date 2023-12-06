@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.grey,
         title: const Center(
           child: Text(
-            'Admin',
+            'Food items',
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           ),
         ),

@@ -101,6 +101,17 @@ class FirestoreMethods {
       log(e.toString());
     }
   }
+  Future<void> deleteRecProduct(String productId) async {
+    try {
+      DocumentSnapshot doc = await FirebaseFirestore.instance
+          .collection('recommendedProducts')
+          .doc(productId)
+          .get();
+      await doc.reference.delete();
+    } catch (e) {
+      log(e.toString());
+    }
+  }
 
   Future<void> updateOrderDetails(
     String productId,
