@@ -1,5 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flavor_fleet_admin_app/pages/products.dart';
+import 'package:flavor_fleet_admin_app/pages/landing_page.dart';
 import 'package:flutter/material.dart';
 
 void main() async {

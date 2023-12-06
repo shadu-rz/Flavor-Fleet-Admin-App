@@ -11,13 +11,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        centerTitle: true,
         backgroundColor: Colors.greenAccent,
-        title: const Center(
-          child: Text(
-            'Food items',
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-          ),
+        title: const Text(
+          'Food items',
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ),
       body: Column(

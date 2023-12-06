@@ -10,11 +10,11 @@ class ProductsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.tealAccent,
         centerTitle: true,
         title: const BigText(
           text: 'Flavor Fleet Admin',
-          color: Colors.white,
+          color: Colors.black,
         ),
       ),
       body: Column(
@@ -25,7 +25,7 @@ class ProductsPage extends StatelessWidget {
               builder: (context) => const HomePage(),
             )),
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
                 color: Colors.green,
                 borderRadius: BorderRadius.circular(20),
@@ -44,16 +44,15 @@ class ProductsPage extends StatelessWidget {
               builder: (context) => const UsersList(),
             )),
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                 color: Colors.cyan,
+                color: Colors.cyan,
               ),
-             
               height: MediaQuery.of(context).size.width / 2,
               child: const Center(
                 child: BigText(
-                  text: 'Orders',
+                  text: 'Users',
                   color: Colors.white,
                 ),
               ),

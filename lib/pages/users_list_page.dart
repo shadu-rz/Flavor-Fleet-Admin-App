@@ -34,46 +34,50 @@ class UsersList extends StatelessWidget {
                 child: Text('No data'),
               );
             }
-            return ListView.separated(
-              separatorBuilder: (context, index) {
-                return Container(
-                  height: 1,
-                  color: Colors.grey,
-                );
-              },
-              itemCount: snapshot.data!.docs.length,
-              itemBuilder: (context, index) {
-                var snap = snapshot.data!.docs[index].data();
-                return GestureDetector(
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => OrderPage(
-                        uId: snap['uId'],
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 5,
+                  mainAxisSpacing: 5,
+                ),
+                itemBuilder: (context, index) {
+                  var snap = snapshot.data!.docs[index].data();
+                  return GestureDetector(
+                    onTap: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => OrderPage(
+                          uId: snap['uId'],
+                        ),
                       ),
                     ),
-                  ),
-                  child: SizedBox(
-                    height: 70,
-                    width: MediaQuery.of(context).size.width,
-                    // color: Colors.amber,
-                    child: Row(
-                      children: [
-                        const SizedBox(width: 20),
-                        SmallText(
-                          text: snap['username'].isEmpty
-                              ? snap['email']
-                              : snap['username'],
-                          size: 18,
-                          color: Colors.black,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.greenAccent,
+                      ),
+                      height: 100,
+                      width: 100,
+                      child: SizedBox(
+                        height: 70,
+                        width: MediaQuery.of(context).size.width,
+                        // color: Colors.amber,
+                        child: Center(
+                          child: SmallText(
+                            text: snap['username'].isEmpty
+                                ? snap['email']
+                                : snap['username'],
+                            size: 18,
+                            color: Colors.black,
+                          ),
                         ),
-                        const Spacer(),
-                        const Icon(Icons.arrow_right_alt_outlined),
-                        const SizedBox(width: 20),
-                      ],
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+                itemCount: snapshot.data!.docs.length,
+              ),
             );
           }),
     );
