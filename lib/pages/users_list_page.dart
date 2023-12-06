@@ -11,7 +11,9 @@ class UsersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.greenAccent,
       appBar: AppBar(
+        backgroundColor: Colors.greenAccent,
         centerTitle: true,
         title: const Text('Users'),
       ),
@@ -55,7 +57,7 @@ class UsersList extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.greenAccent,
+                        color: Colors.green,
                       ),
                       height: 100,
                       width: 100,

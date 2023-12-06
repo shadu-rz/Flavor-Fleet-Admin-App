@@ -19,7 +19,9 @@ class OrderStatusPage extends StatelessWidget {
     RxBool outOfDelivery = RxBool(snap['outOfDelivery']);
     RxBool delivered = RxBool(snap['delivered']);
     return Scaffold(
+      backgroundColor: Colors.tealAccent,
       appBar: AppBar(
+        backgroundColor: Colors.tealAccent,
         centerTitle: true,
         title: const BigText(text: 'Order Details'),
       ),
@@ -68,6 +70,7 @@ class OrderStatusPage extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 SmallText(
+                  color: Colors.black,
                   text: 'Order recived ',
                   size: 17,
                 )
@@ -91,6 +94,7 @@ class OrderStatusPage extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 SmallText(
+                  color: Colors.black,
                   text: 'preparing ',
                   size: 17,
                 )
@@ -114,6 +118,7 @@ class OrderStatusPage extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 SmallText(
+                  color: Colors.black,
                   text: 'out of delivery ',
                   size: 17,
                 )
@@ -137,6 +142,7 @@ class OrderStatusPage extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 SmallText(
+                  color: Colors.black,
                   text: 'Delivered ',
                   size: 17,
                 )
@@ -158,7 +164,7 @@ class OrderStatusPage extends StatelessWidget {
             },
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.grey,
+                color: Colors.teal,
                 borderRadius: BorderRadius.circular(20),
               ),
               margin: const EdgeInsets.symmetric(horizontal: 30),

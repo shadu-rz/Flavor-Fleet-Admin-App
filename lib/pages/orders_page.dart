@@ -20,12 +20,13 @@ class OrderPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.limeAccent,
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.limeAccent,
         title: const BigText(
           text: 'Orders',
-          color: Colors.white,
+          color: Colors.black,
         ),
       ),
       body: Column(
@@ -33,7 +34,6 @@ class OrderPage extends StatelessWidget {
           Expanded(
             child: Container(
               height: 120,
-              margin: const EdgeInsets.symmetric(horizontal: 20),
               child: StreamBuilder(
                   stream: FirebaseFirestore.instance
                       .collection('orders')
@@ -62,14 +62,8 @@ class OrderPage extends StatelessWidget {
                         child: BigText(text: 'No items found'),
                       );
                     }
-                    return ListView.separated(
+                    return ListView.builder(
                       shrinkWrap: true,
-                      separatorBuilder: (context, index) {
-                        return Container(
-                          height: 1,
-                          color: Colors.grey,
-                        );
-                      },
                       itemCount: snapshot.data!.docs.length,
                       itemBuilder: (context, index) {
                         Map<String, dynamic> snap =
@@ -86,68 +80,77 @@ class OrderPage extends StatelessWidget {
                               ),
                             );
                           },
-                          child: SizedBox(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      width: 20 * 3,
-                                      height: 20 * 3,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: NetworkImage(snap['image']),
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                          color: Colors.white),
-                                    ),
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        SmallText(
-                                          text: snap['title']
-                                              .toString()
-                                              .toUpperCase(),
-                                          color: Colors.black,
-                                          size: 16,
-                                        ),
-                                        SmallText(
-                                          text:
-                                              "${DateFormat.yMEd().format(date)} \n ${DateFormat.jm().format(date)}",
-                                          color: Colors.black,
-                                          size: 16,
-                                        ),
-                                      ],
-                                    ),
-                                    const Spacer(),
-                                    SmallText(
-                                      text: "₹ ${snap['price']}",
-                                      size: 18,
-                                      color: Colors.blueGrey,
-                                    ),
-                                    // const Spacer(),
-                                    // SmallText(text: "2 items",size: 16,color: Colors.black45),
-                                    const Spacer(),
-                                    SizedBox(
-                                      height: 100,
-                                      child: IconButton(
-                                        color: Colors.red,
-                                        icon: const Icon(Icons.delete_outline),
-                                        onPressed: () async {
-                                          await _showMyDialog(context, snap);
-                                        },
+                          child: Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.lime,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const SizedBox(width: 20),
+                                      Container(
+                                        width: 20 * 3,
+                                        height: 20 * 3,
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image:
+                                                  NetworkImage(snap['image']),
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                            color: Colors.white),
                                       ),
-                                    )
-                                  ],
-                                ),
-                              ],
+                                      const SizedBox(
+                                        width: 20,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          SmallText(
+                                            text: snap['title']
+                                                .toString()
+                                                .toUpperCase(),
+                                            color: Colors.black,
+                                            size: 16,
+                                          ),
+                                          SmallText(
+                                            text:
+                                                "${DateFormat.yMEd().format(date)} \n ${DateFormat.jm().format(date)}",
+                                            color: Colors.black,
+                                            size: 16,
+                                          ),
+                                        ],
+                                      ),
+                                      const Spacer(),
+                                      SmallText(
+                                        text: "₹ ${snap['price']}",
+                                        size: 18,
+                                        color: Colors.blueGrey,
+                                      ),
+                                      // const Spacer(),
+                                      // SmallText(text: "2 items",size: 16,color: Colors.black45),
+                                      const Spacer(),
+                                      SizedBox(
+                                        height: 100,
+                                        child: IconButton(
+                                          color: Colors.red,
+                                          icon:
+                                              const Icon(Icons.delete_outline),
+                                          onPressed: () async {
+                                            await _showMyDialog(context, snap);
+                                          },
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );
@@ -187,7 +190,6 @@ Future<void> _showMyDialog(context, Map<String, dynamic> snap) async {
                 Navigator.of(context).pop();
                 String id = snap['productId'];
                 await FirestoreMethods().deleteOrderedItem(id);
-                
               },
             ),
           ],

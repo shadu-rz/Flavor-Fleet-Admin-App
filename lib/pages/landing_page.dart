@@ -1,14 +1,15 @@
-import 'package:flavor_fleet_admin_app/pages/home_page.dart';
+import 'package:flavor_fleet_admin_app/pages/product_list.dart';
 import 'package:flavor_fleet_admin_app/pages/users_list_page.dart';
 import 'package:flavor_fleet_admin_app/widgets/big_text.dart';
 import 'package:flutter/material.dart';
 
-class ProductsPage extends StatelessWidget {
-  const ProductsPage({super.key});
+class LandingPage extends StatelessWidget {
+  const LandingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.tealAccent,
       appBar: AppBar(
         backgroundColor: Colors.tealAccent,
         centerTitle: true,
@@ -27,7 +28,7 @@ class ProductsPage extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
-                color: Colors.green,
+                color: Colors.teal,
                 borderRadius: BorderRadius.circular(20),
               ),
               height: MediaQuery.of(context).size.width / 2,
@@ -47,7 +48,7 @@ class ProductsPage extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                color: Colors.cyan,
+                color: Colors.teal,
               ),
               height: MediaQuery.of(context).size.width / 2,
               child: const Center(
