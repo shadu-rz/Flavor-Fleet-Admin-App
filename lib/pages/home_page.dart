@@ -12,11 +12,11 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.greenAccent,
         title: const Center(
           child: Text(
             'Food items',
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
           ),
         ),
       ),
@@ -40,9 +40,10 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     color: Colors.grey,
                   ),
-                  height: 50,
-                  width: 50,
+                  height: 30,
+                  width: 30,
                   child: IconButton(
+                    iconSize: 15,
                     color: Colors.white,
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -73,9 +74,10 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     color: Colors.grey,
                   ),
-                  height: 50,
-                  width: 50,
+                  height: 30,
+                  width: 30,
                   child: IconButton(
+                    iconSize: 15,
                     color: Colors.white,
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(

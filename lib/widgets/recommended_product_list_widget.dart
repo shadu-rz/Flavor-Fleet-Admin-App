@@ -27,83 +27,97 @@ class RecommendedProductListWidget extends StatelessWidget {
           return const Center(child: Text('No Item'));
         }
 
-        return ListView.separated(
-          itemBuilder: (context, index) {
-            var snap = snapshot.data!.docs[index].data();
-            return SizedBox(
-              height: 70,
-              child: Row(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(snap['image']),
-                      ),
-                    ),
-                    margin: const EdgeInsets.only(left: 20),
-                    height: 50,
-                    width: 50,
-                  ),
-                  const SizedBox(width: 20),
-                  Text(
-                    snap['title'],
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 18),
-                  ),
-                  const Spacer(),
-                  IconButton(
-                    onPressed: () async{
-                       await _showMyDialog(context,snap);
-                    },
-                    icon: const Icon(Icons.delete_outline_rounded),
-                  ),
-                  const SizedBox(width: 10),
-                ],
-              ),
-            );
-          },
-          separatorBuilder: (context, index) => Container(
-            height: 1,
-            color: Colors.black,
+        return Padding(
+          padding: const EdgeInsets.only(
+            left: 10,
+            right: 10,
+            top: 10,
           ),
-          itemCount: snapshot.data!.docs.length,
+          child: SizedBox(
+            height: 500,
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 20,
+              ),
+              itemBuilder: (context, index) {
+                var snap = snapshot.data!.docs[index].data();
+                return Container(
+                  decoration: BoxDecoration(
+                    color: Colors.cyanAccent,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  width: 100,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 10),
+                      Text(
+                        snap['title'],
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      const SizedBox(height: 4),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(snap['image']),
+                          ),
+                        ),
+                        height: 100,
+                        width: 120,
+                      ),
+                      IconButton(
+                        onPressed: () async {
+                          await _showMyDialog(context, snap);
+                        },
+                        icon: const Icon(
+                          Icons.delete_outline_rounded,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+              itemCount: snapshot.data!.docs.length,
+            ),
+          ),
         );
       },
     );
   }
 }
 
-  
-  Future<void> _showMyDialog(context,Map<String,dynamic> snap) async {
-    return showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text(
-              'Are you sure want to delete?',
-              style:  TextStyle(
-                fontSize: 20 - 3,
-                fontWeight: FontWeight.bold,
-              ),
+Future<void> _showMyDialog(context, Map<String, dynamic> snap) async {
+  return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text(
+            'Are you sure want to delete?',
+            style: TextStyle(
+              fontSize: 20 - 3,
+              fontWeight: FontWeight.bold,
             ),
-            actions: [
-              TextButton(
-                child: const Text('Cancel'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-              TextButton(
-                child: const Text('Confirm'),
-                onPressed: () async {
-                  Navigator.pop(context);
-                   await FirestoreMethods().deleteRecProduct(snap['productId']);
-                },
-              ),
-            ],
-          );
-        });
-  }
+          ),
+          actions: [
+            TextButton(
+              child: const Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text('Confirm'),
+              onPressed: () async {
+                Navigator.pop(context);
+                await FirestoreMethods().deleteRecProduct(snap['productId']);
+              },
+            ),
+          ],
+        );
+      });
+}
