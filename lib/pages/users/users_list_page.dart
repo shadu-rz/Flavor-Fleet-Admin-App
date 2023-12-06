@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flavor_fleet_admin_app/pages/orders_page.dart';
+import 'package:flavor_fleet_admin_app/pages/orders/orders_page.dart';
 import 'package:flavor_fleet_admin_app/widgets/small_text.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,12 @@ class UsersList extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.greenAccent,
         centerTitle: true,
-        title: const Text('Users'),
+        title: const Text(
+          'Users',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       body: StreamBuilder(
           stream: FirebaseFirestore.instance.collection('users').snapshots(),
@@ -71,7 +76,7 @@ class UsersList extends StatelessWidget {
                                 ? snap['email']
                                 : snap['username'],
                             size: 18,
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ),
                       ),

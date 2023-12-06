@@ -1,5 +1,5 @@
 import 'package:flavor_fleet_admin_app/pages/product_list.dart';
-import 'package:flavor_fleet_admin_app/pages/users_list_page.dart';
+import 'package:flavor_fleet_admin_app/pages/users/users_list_page.dart';
 import 'package:flavor_fleet_admin_app/widgets/big_text.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class LandingPage extends StatelessWidget {
         backgroundColor: Colors.tealAccent,
         centerTitle: true,
         title: const BigText(
-          text: 'Flavor Fleet Admin',
+          text: 'FlavoFleet Admin App',
           color: Colors.black,
         ),
       ),

@@ -1,5 +1,5 @@
-import 'package:flavor_fleet_admin_app/pages/add_popular_product_page.dart';
-import 'package:flavor_fleet_admin_app/pages/add_recommended_product_page.dart';
+import 'package:flavor_fleet_admin_app/pages/add%20product/add_popular_product_page.dart';
+import 'package:flavor_fleet_admin_app/pages/add%20product/add_recommended_product_page.dart';
 import 'package:flavor_fleet_admin_app/widgets/popular_product_list_widget.dart';
 import 'package:flavor_fleet_admin_app/widgets/recommended_product_list_widget.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +15,10 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.greenAccent,
         title: const Text(
           'Food items',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
         ),
       ),
       body: Column(

@@ -47,7 +47,7 @@ class RecommendedProductListWidget extends StatelessWidget {
                   var snap = snapshot.data!.docs[index].data();
                   return Container(
                     decoration: BoxDecoration(
-                      color: Colors.orangeAccent,
+                      color: Colors.lightGreenAccent,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     width: 100,

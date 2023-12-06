@@ -2,7 +2,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flavor_fleet_admin_app/firebase/firestore_methods.dart';
 
-import 'package:flavor_fleet_admin_app/pages/order_status_page.dart';
+import 'package:flavor_fleet_admin_app/pages/orders/order_status_page.dart';
 import 'package:flavor_fleet_admin_app/widgets/big_text.dart';
 
 import 'package:flavor_fleet_admin_app/widgets/small_text.dart';
