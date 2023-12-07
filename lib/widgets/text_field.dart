@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class TextFieldWidget extends StatelessWidget {
   final TextEditingController textController;
   final String hintText;
+  final TextInputType keyboardType ;
   const TextFieldWidget({
     super.key,
     required this.textController,
-    required this.hintText,
+    required this.hintText, required this.keyboardType,
+    
   });
 
   @override
@@ -24,6 +26,7 @@ class TextFieldWidget extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.2))
           ]),
       child: TextField(
+        keyboardType: keyboardType,
         controller: textController,
         decoration: InputDecoration(
             hintText: hintText,
