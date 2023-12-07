@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 class OrderStatusPage extends StatelessWidget {
   final Map<String, dynamic> snap;
+  
   const OrderStatusPage({
     super.key,
     required this.snap,
@@ -160,7 +161,8 @@ class OrderStatusPage extends StatelessWidget {
                 outOfDelivery.value,
                 delivered.value,
               );
-            
+              const snackBar = SnackBar(content: Text('Done'),duration: Duration(seconds: 1),);
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
             child: Container(
               decoration: BoxDecoration(
