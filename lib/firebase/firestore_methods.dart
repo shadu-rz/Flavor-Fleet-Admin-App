@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flavor_fleet_admin_app/models/popular_product_model.dart';
 import 'package:flavor_fleet_admin_app/models/recommended_product_mode.dart';
-import 'package:flutter/material.dart';
 
 import 'package:uuid/uuid.dart';
 

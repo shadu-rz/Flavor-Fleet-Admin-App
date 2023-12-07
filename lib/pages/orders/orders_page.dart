@@ -32,7 +32,7 @@ class OrderPage extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: Container(
+            child: SizedBox(
               height: 120,
               child: StreamBuilder(
                   stream: FirebaseFirestore.instance

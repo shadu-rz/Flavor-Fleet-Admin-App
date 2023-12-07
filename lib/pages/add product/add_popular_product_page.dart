@@ -44,7 +44,7 @@ class _PopularProductState extends State<PopularProduct> {
                     distanceController.text);
                 Navigator.of(context).pop();
               },
-              icon: Icon(Icons.check))
+              icon: const Icon(Icons.check))
         ],
       ),
       body: SingleChildScrollView(
